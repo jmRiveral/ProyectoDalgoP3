@@ -17,8 +17,7 @@ def saltoDivRecursivo(m,ini,k,count):
     for e in aux:
         
         if e==m:
-            print(aux)
-            print(e)
+            
             count+=1
         elif (e+k+1)<=m:
             count+= saltoDivRecursivo(m,e, k+1, 0)
