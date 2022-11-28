@@ -27,18 +27,18 @@ def saltoDivRecursivo(m,ini,k,count):
 
 def solDP(m,k):
     caminos=0
-    dist=m
+    dist=1
     lg=m
     div=k
-    matrizCubo=[[[False for x in range(m)] for y in range(m)] for z in range(m)]
+    matrizCubo=[[[False for x in range(m)] for y in range(k)] for z in range(m)]
     #[pagina dist act][k][long]
-    for x in range(dist):
-        for y in range(m):
+    for x in range(m):
+        for y in range(k):
             for z in range(m):
-                if y==z:
-
+                if z%(k+y)==0 and z/(k+y)==x and x-m==0:
                  matrizCubo[x][y][z]=True
-        print(matrizCubo[x])
+            print(matrizCubo[x][y])
+        print(" ")
 
    
 
