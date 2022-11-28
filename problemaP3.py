@@ -3,7 +3,7 @@ import numpy as np
 
 def saltoDivRecursivo(m,ini,k,count):
     aux=[] 
-    l=True
+    
     for i in range(ini+1,m+1):
         mov=i-ini
         
@@ -24,6 +24,26 @@ def saltoDivRecursivo(m,ini,k,count):
             
     return count    
   
+
+def solDP(m,k):
+    caminos=0
+    dist=m
+    lg=m
+    div=k
+    matrizCubo=[[[False for x in range(m)] for y in range(m)] for z in range(m)]
+    #[pagina dist act][k][long]
+    for x in range(dist):
+        for y in range(m):
+            for z in range(m):
+                if y==z:
+
+                 matrizCubo[x][y][z]=True
+        print(matrizCubo[x])
+
+   
+
+    return caminos
+
   
 def main():
     linea = sys.stdin.readline()
@@ -37,5 +57,6 @@ def main():
         k=int(datastr[1])
         linea=sys.stdin.readline()
         total =0
-        print(saltoDivRecursivo(m,0, k, total))
+        solDP(m,k)
+        #print(saltoDivRecursivo(m,0, k, total))
 main()
