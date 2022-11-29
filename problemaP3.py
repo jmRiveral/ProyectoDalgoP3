@@ -46,7 +46,41 @@ def solDP(m,k):
 
     return caminos
 
-  
+def solSeguroDP(m,k):
+    contador=0
+    aux1=[]
+    aux2=[]
+    #inicializa aux
+    for i in range(1,m+1):
+        if k*i<=m:
+            aux1.append(k*i)
+    if m in aux1:
+        contador+=1
+        aux1.remove(m)
+
+    
+    for i in range(m):
+        k+=1
+        for j in aux1:
+            factor=1
+            while  (factor*k) +j<=m:
+                aux2.append((factor*k) +j)
+                factor+=1
+        veces=aux2.count(m)
+        contador=contador+veces
+                
+        print("a1:",aux1)
+
+        print("a2:",aux2)
+
+        for x in range(veces):
+            aux2.remove(m)
+        print(aux2)
+        
+        aux1=aux2
+        aux2=[]
+    return contador
+
 def main():
     linea = sys.stdin.readline()
     casos = int(linea)
@@ -59,6 +93,6 @@ def main():
         k=int(datastr[1])
         linea=sys.stdin.readline()
         total =0
-        solDP(m,k)
+        print(solSeguroDP(m,k))
         #print(saltoDivRecursivo(m,0, k, total))
 main()
