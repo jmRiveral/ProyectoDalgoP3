@@ -30,14 +30,16 @@ def solDP(m,k):
     dist=1
     lg=m
     div=k
-    matrizCubo=[[[False for x in range(m)] for y in range(k)] for z in range(m)]
+    mat=[[[False for x in range(m)] for y in range(k+1)] for z in range(m)]
     #[pagina dist act][k][long]
     for x in range(m):
-        for y in range(k):
+        for y in range(k+1):
             for z in range(m):
-                if z%(k+y)==0 and z/(k+y)==x and x-m==0:
-                 matrizCubo[x][y][z]=True
-            print(matrizCubo[x][y])
+                
+                if (z+1)%(k+y)==0 and (x+1)%(z+1)==0 :
+                    
+                    mat[x][y][z]=True
+            print(mat[x][y])    
         print(" ")
 
    
