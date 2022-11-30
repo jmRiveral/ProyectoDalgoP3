@@ -1,6 +1,6 @@
 import sys
 import numpy as np
-
+import time
 def saltoDivRecursivo(m,ini,k,count):
     aux=[] 
     
@@ -54,25 +54,23 @@ def solSeguroDP(m,k):
     for i in range(1,m+1):
         if k*i<=m:
             aux1.append(k*i)
-    if m in aux1:
+    if m%k==0:
         contador+=1
-        aux1.remove(m)
-
+   
     
     for i in range(m):
         k+=1
         for j in aux1:
             factor=1
-            while  (factor*k) +j<=m:
+            while  (factor*k) +j<=m or (factor*k+1) +j<=m:
+                
                 aux2.append((factor*k) +j)
                 factor+=1
         veces=aux2.count(m)
         contador=contador+veces
                 
 
-        for x in range(veces):
-            aux2.remove(m)
-        print(aux2)
+        
         
         aux1=aux2
         aux2=[]
@@ -90,6 +88,9 @@ def main():
         k=int(datastr[1])
         linea=sys.stdin.readline()
         total =0
-        print(solSeguroDP(m,k))
-        #print(saltoDivRecursivo(m,0, k, total))
+        #print(solSeguroDP(m,k))
+        print(saltoDivRecursivo(m,0, k, total))
+
+start_time = time.time()
 main()
+print("--- %s seconds ---" % (time.time() - start_time))
