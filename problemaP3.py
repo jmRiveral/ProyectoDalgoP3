@@ -69,9 +69,6 @@ def solSeguroDP(m,k):
         veces=aux2.count(m)
         contador=contador+veces
                 
-        print("a1:",aux1)
-
-        print("a2:",aux2)
 
         for x in range(veces):
             aux2.remove(m)
