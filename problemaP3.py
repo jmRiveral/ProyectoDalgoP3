@@ -67,7 +67,7 @@ def solSeguroDP(m,k):
             break
         if m in rep2:
             
-            rep2[m]+=rep1[m]
+            rep2[m]+=rep1[m]%998244353
         else:
             rep2[m]=rep1[m]
         
